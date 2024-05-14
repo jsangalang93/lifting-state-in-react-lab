@@ -1,8 +1,20 @@
 // src/components/IngredientList.jsx
-const IngredientList = (props) => {
+const IngredientList = () => {
+    const [addIngredient, setAddIngredient] = useState([]);
+    const [ingredient, setIngredient] = useState([]);
+
     return 
         <ul>
-        // map through props.ingredients
+        {availableIngredients.map((ingredient, index) => {
+            <li 
+                key={index}>
+                <ul>
+                    {ingredient.name}
+                <button onClick={() => setAddIngredient(ingredient)}>+</button>
+                </ul>
+            </li>
+        })}
+
         
         </ul>;
   };
