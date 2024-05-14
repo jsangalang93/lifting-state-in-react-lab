@@ -1,22 +1,31 @@
 // src/components/IngredientList.jsx
-const IngredientList = () => {
-    const [addIngredient, setAddIngredient] = useState([]);
-    const [ingredient, setIngredient] = useState([]);
+import { useState } from 'react'
 
-    return 
+const IngredientList = ({availableIngredients, setAddIngredient, handleAddIngredient}) => {
+    
+
+    return (
+    <>
         <ul>
         {availableIngredients.map((ingredient, index) => {
-            <li 
-                key={index}>
-                <ul>
-                    {ingredient.name}
-                <button onClick={() => setAddIngredient(ingredient)}>+</button>
-                </ul>
+            return (
+                
+            <li key={index}>
+                
+                <button style= {{backgroundColor: ingredient.color}} onClick={() => 
+                    handleAddIngredient
+                    (ingredient)}> {ingredient.name} + </button>
+                
             </li>
+            );
         })}
 
         
-        </ul>;
+        </ul>
+        </>
+    );
   };
+
+
   
   export default IngredientList;
